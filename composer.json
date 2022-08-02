@@ -1,0 +1,20 @@
+{
+    "name": "roelmagdaleno/wp-devtools",
+    "description": "A set of tools for devtools.roelmagdaleno.com",
+    "authors": [
+        {
+            "name": "Roel Magdaleno",
+            "email": "roelmagdaleno@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Roel\\WP\\DevTools\\": "src"
+        }
+    },
+    "require": {
+        "ext-json": "*",
+        "brick/varexporter": "^0.3.7",
+        "roelmagdaleno/wp-settings-page-fields": "^0.1.1"
+    }
+}
