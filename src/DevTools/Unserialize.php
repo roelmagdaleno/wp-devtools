@@ -39,7 +39,7 @@ class Unserialize {
 		$data = array(
 			'serialized'         => $body['serializedInput'],
 			'unserialized'       => $unserialized,
-			'syntax_highlighted' => $this->syntax_highlighting( $unserialized, $output ),
+			'syntax_highlighted' => $this->syntax_highlighting( $unserialized, $output, $body['options'] ?? array() ),
 			'output_method'      => $output,
 			'metadata'           => array(
 				'php_version' => phpversion(),
@@ -88,7 +88,7 @@ class Unserialize {
 	 * @param  string   $output         The output method (json, array).
 	 * @return mixed|string             The unserialized data with syntax highlighted.
 	 */
-	protected function syntax_highlighting( string $unserialized, string $output ) {
+	protected function syntax_highlighting( string $unserialized, string $output, array $options = array() ) {
 		$syntax_highlighting = new SyntaxHighlighting();
 		$syntax_request      = new WP_REST_Request();
 
@@ -98,8 +98,9 @@ class Unserialize {
 		);
 
 		$syntax_request->set_param( 'language', $languages[ $output ] );
-		$syntax_request->set_param( 'theme', 'github-light' );
+		$syntax_request->set_param( 'theme', $options['theme'] ?? 'github-light' );
 		$syntax_request->set_param( 'code', $unserialized );
+        $syntax_request->set_param( 'options', $options );
 
 		$response = $syntax_highlighting->run( $syntax_request );
 

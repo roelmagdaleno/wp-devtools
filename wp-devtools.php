@@ -4,7 +4,7 @@
  * Plugin Name:       DevTools by Roel Magdaleno
  * Plugin URI:        https://roelmagdaleno.com
  * Description:       A set of tools for https://devtools.roelmagdaleno.com
- * Version:           0.1.0
+ * Version:           0.1.1
  * Requires at least: 5.0
  * Requires PHP:      7.4
  * Author:            Roel Magdaleno
